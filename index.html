@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input v-model="school.name"/>
+        <div>{{school.name}}</div>
+        {{getNewName}}
+        <div>{{school.age}}</div>
+        <div v-html="message"></div>
+        <ul>
+            <li>1</li>
+        </ul>
+        <button v-on:click="change">点击更新name</button>
+    </div>
+    <script src="MVVM.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                school: {
+                    name: '鱿鱼溪',
+                    age: 10
+                },
+                message: '<h1>hello world</h1>'
+            },
+            computed: {
+                getNewName() {
+                    return this.school.name + '666'
+                }
+            },
+            methods: {
+                change() {
+                    this.school.name = '鱿鱼溪是vue的author'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+
+        
